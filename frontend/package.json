@@ -1,0 +1,17 @@
+{
+  "name": "genlayer-p2p-mvp",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "genlayer-js": "^0.1.0",
+    "viem": "^2.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
