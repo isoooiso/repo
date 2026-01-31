@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>GenLayer P2P MVP</title>
+    <style>
+      body { font-family: system-ui, Arial; max-width: 980px; margin: 24px auto; padding: 0 12px; }
+      .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .card { border: 1px solid #ddd; border-radius: 12px; padding: 12px; }
+      input, textarea { width: 100%; padding: 8px; margin: 6px 0; }
+      button { padding: 10px 12px; cursor: pointer; }
+      pre { white-space: pre-wrap; word-break: break-word; background: #f7f7f7; padding: 10px; border-radius: 10px; }
+    </style>
+  </head>
+  <body>
+    <h1>GenLayer P2P MVP (Escrow + AI Disputes)</h1>
+
+    <div class="card">
+      <button id="btnConnect">Connect wallet</button>
+      <div>Account: <span id="account">-</span></div>
+      <div>Contract: <input id="contractAddress" placeholder="0x..." /></div>
+      <small>Адрес контракта вставишь после деплоя.</small>
+    </div>
+
+    <div class="row">
+      <div class="card">
+        <h3>Create Offer</h3>
+        <input id="title" placeholder="Title" />
+        <textarea id="desc" placeholder="Description"></textarea>
+        <input id="price" placeholder="Price (in GEN wei-like units)" />
+        <button id="btnCreate">Create</button>
+      </div>
+
+      <div class="card">
+        <h3>Offer / Deal Read</h3>
+        <input id="offerIdRead" placeholder="Offer ID" />
+        <button id="btnRead">Read offer+deal</button>
+        <pre id="readOut"></pre>
+      </div>
+
+      <div class="card">
+        <h3>Accept Offer (payable)</h3>
+        <input id="offerIdAccept" placeholder="Offer ID" />
+        <button id="btnAccept">Accept (sends value=price)</button>
+      </div>
+
+      <div class="card">
+        <h3>Ship / Confirm</h3>
+        <input id="offerIdShip" placeholder="Offer ID" />
+        <input id="tracking" placeholder="Tracking URL" />
+        <button id="btnShip">Mark shipped</button>
+        <button id="btnConfirm">Confirm received</button>
+      </div>
+
+      <div class="card">
+        <h3>Dispute</h3>
+        <input id="offerIdDispute" placeholder="Offer ID" />
+        <textarea id="reason" placeholder="Reason / statement"></textarea>
+        <input id="evidence" placeholder='Evidence URLs CSV: "https://..., https://..."' />
+        <button id="btnOpenDispute">Open dispute</button>
+        <button id="btnRespondDispute">Respond dispute</button>
+        <button id="btnResolve">Resolve dispute (AI)</button>
+      </div>
+
+      <div class="card">
+        <h3>Logs</h3>
+        <pre id="log"></pre>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
